@@ -1,13 +1,13 @@
 import React from 'react';
 import hljs from 'highlight.js/lib/highlight';
-import python from 'highlight.js/lib/languages/python';
+import java from 'highlight.js/lib/languages/java';
 
 
-hljs.registerLanguage('python', python);
+hljs.registerLanguage('java', java);
 hljs.configure({ useBR: true })
 
 
-class PythonCodeBlock extends React.Component {
+class JavaCodeBlock extends React.Component {
     constructor(props) {
         super(props);
         this.codeRef = React.createRef();
@@ -21,7 +21,7 @@ class PythonCodeBlock extends React.Component {
         <pre ref={this.codeRef} style={{borderRadius: "5px"}}>
             {this.props.lines.map(line => (
                 <React.Fragment key={line}>
-                    <code className="python">
+                    <code className="java">
                         {line}
                     </code>
                     <br />
@@ -31,4 +31,4 @@ class PythonCodeBlock extends React.Component {
     )
 }
 
-export default PythonCodeBlock;
+export default JavaCodeBlock;
