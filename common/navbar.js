@@ -27,7 +27,7 @@ const NavBar = props => (
                 </Link>
             </Button>
             <Button size="small">
-                <Link prefetch href="about">
+                <Link prefetch href="/about">
                     <a style={{textDecoration: 'none', color: 'black'}}>About</a>
                 </Link>
             </Button>
