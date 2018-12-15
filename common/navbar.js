@@ -11,26 +11,18 @@ const NavBar = props => (
             <link href="/static/styles/atom-one-dark.css" rel="stylesheet" />
         </Head>
         <Toolbar>
-            <Button size="small">
-                <Link prefetch href="/">
-                    <a style={{textDecoration: 'none', color: 'black'}}>Home</a>
-                </Link>
-            </Button>
-            <Button size="small">
-                <Link prefetch href="/tutorials">
-                    <a style={{textDecoration: 'none', color: 'black'}}>Tutorials</a>
-                </Link>
-            </Button>
-            <Button size="small">
-                <Link prefetch href="/blog">
-                    <a style={{textDecoration: 'none', color: 'black'}}>Blog</a>
-                </Link>
-            </Button>
-            <Button size="small">
-                <Link prefetch href="/about">
-                    <a style={{textDecoration: 'none', color: 'black'}}>About</a>
-                </Link>
-            </Button>
+            <Link href="/" passHref prefetch>
+                <Button>Home</Button>
+            </Link>
+            <Link href="/tutorials" passHref prefetch>
+                <Button>Tutorials</Button>
+            </Link>
+            <Link href="/blog" passHref prefetch>
+                <Button>Blog</Button>
+            </Link>
+            <Link href="/about" passHref prefetch>
+                <Button>About</Button>
+            </Link>
         </Toolbar>
     </>
 );
