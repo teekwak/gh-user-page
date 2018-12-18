@@ -8,7 +8,7 @@ import Head from 'next/head';
 const NavBar = props => (
     <>
         <Head>
-            <link href="/static/styles/atom-one-dark.css" rel="stylesheet" />
+            <link href="/static/css/prism-okaidia.css" rel="stylesheet" />
         </Head>
         <Toolbar>
             <Link href="/" passHref prefetch>

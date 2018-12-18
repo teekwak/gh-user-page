@@ -1,27 +1,21 @@
 import React from 'react';
-import hljs from 'highlight.js/lib/highlight';
-import java from 'highlight.js/lib/languages/java';
-
-
-hljs.registerLanguage('java', java);
-hljs.configure({ useBR: true })
+import Prism from 'prismjs';
 
 
 class JavaCodeBlock extends React.Component {
     constructor(props) {
         super(props);
-        this.codeRef = React.createRef();
     }
 
     componentDidMount = () => {
-        hljs.highlightBlock(this.codeRef.current);
+        Prism.highlightAll();
     }
 
     render = () => (
-        <pre ref={this.codeRef} style={{borderRadius: "5px"}}>
+        <pre className="line-numbers" style={{borderRadius: "5px"}}>
             {this.props.lines.map(line => (
                 <React.Fragment key={line}>
-                    <code className="java">
+                    <code className="language-javascript">
                         {line}
                     </code>
                     <br />
