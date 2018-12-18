@@ -10,6 +10,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import TextField from '@material-ui/core/TextField';
 import classNames from 'classnames';
+import green from '@material-ui/core/colors/green';
 
 
 class TutorialsPage extends React.Component {
@@ -46,14 +47,18 @@ class TutorialsPage extends React.Component {
 
     render = () => {
         const { classes } = this.props;
-
         return (
             <div>
                 <NavBar />
-                <Typography component="h1" variant="h2" color="textPrimary" gutterBottom>
+                <Typography
+                    component="h1"
+                    variant="h2"
+                    color="textPrimary"
+                    gutterBottom
+                >
                     Tutorials
                 </Typography>
-                <Card>
+                <Card style={{ marginBottom: "35px" }}>
                     <TextField
                         id="standard-name"
                         label="Search"
@@ -63,41 +68,52 @@ class TutorialsPage extends React.Component {
                         margin="normal"
                     />
                 </Card>
-                <Card>
-                    {this.state.visibleTopics.length > 0 ?
-                        this.state.visibleTopics.map(topic => (
-                            <Topic
-                                key={topic.name}
-                                name={topic.name}
-                                tutorials={topic.tutorials}
-                            />
-                        ))
-                        :
-                        <Typography gutterBottom variant="headline" component="h2">
-                            No results :c
-                        </Typography>
-                    }
-                </Card>
+                {this.state.visibleTopics.length > 0 ?
+                    this.state.visibleTopics.map(topic => (
+                        <Card style={{ marginBottom: "35px", paddingTop: "45px" }}>
+                            <CardContent>
+                                <Card style={{
+                                    backgroundColor: green[600],
+                                    position: "absolute",
+                                    marginTop: "-75px",
+                                }}>
+                                    <CardContent>
+                                        <Typography
+                                            component="h1"
+                                            variant="headline"
+                                            style={{ color: "white" }}
+                                        >
+                                            {topic.name}
+                                        </Typography>
+                                    </CardContent>
+                                </Card>
+                                {topic.tutorials.map(tutorialName =>
+                                    <Typography key={`${topic.name}_${tutorialName}`}>
+                                        <Link prefetch href={`/tutorials/${topic.name}/${tutorialName}`}>
+                                            <a style={{textDecoration: 'none', color: '#4286f4'}}>{tutorialName.replace(/-/g, " ")}</a>
+                                        </Link>
+                                    </Typography>
+                                )}
+                            </CardContent>
+                        </Card>
+                    ))
+                    :
+                    <Card>
+                        <CardContent>
+                            <Typography
+                                gutterBottom
+                                variant="headline"
+                                component="h2"
+                            >
+                                No results :c
+                            </Typography>
+                        </CardContent>
+                    </Card>
+                }
             </div>
         );
     }
 }
-
-
-const Topic = props => (
-    <CardContent>
-        <Typography gutterBottom variant="headline" component="h2">
-            {props.name}
-        </Typography>
-        {props.tutorials.map(tutorialName =>
-            <Typography key={`${props.name}_${tutorialName}`}>
-                <Link prefetch href={`/tutorials/${props.name}/${tutorialName}`}>
-                    <a style={{textDecoration: 'none', color: '#4286f4'}}>{tutorialName.replace(/-/g, " ")}</a>
-                </Link>
-            </Typography>
-        )}
-    </CardContent>
-)
 
 
 const styles = theme => ({
