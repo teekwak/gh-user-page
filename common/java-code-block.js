@@ -1,5 +1,6 @@
 import React from 'react';
 import Prism from 'prismjs';
+import "prismjs/components/prism-java.min.js"
 
 
 class JavaCodeBlock extends React.Component {
@@ -15,7 +16,7 @@ class JavaCodeBlock extends React.Component {
         <pre className="line-numbers" style={{borderRadius: "5px"}}>
             {this.props.lines.map(line => (
                 <React.Fragment key={line}>
-                    <code className="language-javascript">
+                    <code className="language-java">
                         {line}
                     </code>
                     <br />

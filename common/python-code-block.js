@@ -1,5 +1,6 @@
 import React from 'react';
 import Prism from 'prismjs';
+import "prismjs/components/prism-python.min.js"
 
 
 class PythonCodeBlock extends React.Component {
@@ -15,7 +16,7 @@ class PythonCodeBlock extends React.Component {
         <pre className="line-numbers" style={{borderRadius: "5px"}}>
             {this.props.lines.map(line => (
                 <React.Fragment key={line}>
-                    <code className="language-javascript">
+                    <code className="language-python">
                         {line}
                     </code>
                     <br />
