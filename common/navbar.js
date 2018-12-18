@@ -9,6 +9,7 @@ const NavBar = props => (
     <>
         <Head>
             <link href="/static/css/prism-okaidia.css" rel="stylesheet" />
+            <link href="/static/css/prism-line-numbers.css" rel="stylesheet" />
         </Head>
         <Toolbar>
             <Link href="/" passHref prefetch>

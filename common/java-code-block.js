@@ -1,6 +1,7 @@
 import React from 'react';
 import Prism from 'prismjs';
-import "prismjs/components/prism-java.min.js"
+import "prismjs/components/prism-java.min.js";
+import "prismjs/plugins/line-numbers/prism-line-numbers.min.js";
 
 
 class JavaCodeBlock extends React.Component {

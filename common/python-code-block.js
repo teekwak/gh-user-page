@@ -1,6 +1,7 @@
 import React from 'react';
 import Prism from 'prismjs';
 import "prismjs/components/prism-python.min.js"
+import "prismjs/plugins/line-numbers/prism-line-numbers.min.js";
 
 
 class PythonCodeBlock extends React.Component {

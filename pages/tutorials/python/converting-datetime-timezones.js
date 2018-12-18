@@ -28,7 +28,7 @@ class ConvertingDatetimeTimezones extends React.Component {
                         lines={[
                             "import pytz",
                             "import datetime",
-                            "",
+                            " ",
                             "new_datetime = pytz.timezone('America/Los_Angeles').localize(old_datetime).astimezone(pytz.utc)"
                         ]}
                     />
