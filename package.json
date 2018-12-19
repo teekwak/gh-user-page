@@ -3,7 +3,7 @@
         "dev": "next",
         "build": "next build",
         "start": "next start",
-         "export": "yarn run build && next export && touch ./out/.nojekyll"
+        "export": "yarn run build && next export && touch ./out/.nojekyll"
     },
     "dependencies": {
         "@material-ui/core": "^3.7.0",
