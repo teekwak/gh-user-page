@@ -140,6 +140,12 @@ const topics = [
             "pyspark-reformatting-partition-structures",
         ],
     },
+    {
+        name: "vim",
+        tutorials: [
+            "faster-searching-with-fzf-and-fd-and-rg",
+        ],
+    },
 ];
 
 
