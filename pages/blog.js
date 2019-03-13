@@ -1,12 +1,6 @@
 import React from 'react';
-import { withStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
-import Typography from '@material-ui/core/Typography';
 import NavBar from '../common/navbar';
-
-
-const styles = theme => ({});
+import Card from 'react-bootstrap/Card';
 
 
 class BlogPage extends React.Component {
@@ -14,15 +8,17 @@ class BlogPage extends React.Component {
         <div>
             <NavBar />
             <Card>
-                <CardContent>
-                    <Typography>
-                        Blog
-                    </Typography>
-                </CardContent>
+                <Card.Body>
+                    <Card.Title>Card Title</Card.Title>
+                    <Card.Text>
+                        Some quick example text to build on the card title and make up the bulk of
+                        the card's content.
+                    </Card.Text>
+                </Card.Body>
             </Card>
         </div>
     )
 }
 
-export default withStyles(styles)(BlogPage);
+export default BlogPage;
 

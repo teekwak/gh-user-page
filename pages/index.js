@@ -1,9 +1,5 @@
 import React from 'react';
-import { withStyles } from '@material-ui/core/styles';
-import Toolbar from '@material-ui/core/Toolbar';
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
-import Typography from '@material-ui/core/Typography';
+import Button from 'react-bootstrap/Button';
 import NavBar from '../common/navbar';
 
 
@@ -14,16 +10,9 @@ class HomePage extends React.Component {
     render = () => (
         <div>
             <NavBar />
-            <Card>
-                <CardContent>
-                    <Typography>
-                        Header
-                    </Typography>
-                </CardContent>
-            </Card>
         </div>
     )
 }
 
-export default withStyles(styles)(HomePage);
+export default HomePage;
 

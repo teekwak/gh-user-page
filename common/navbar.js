@@ -1,8 +1,7 @@
 import React from 'react';
-import Toolbar from '@material-ui/core/Toolbar';
-import Button from '@material-ui/core/Button';
-import Link from 'next/link'
 import Head from 'next/head';
+import Navbar from 'react-bootstrap/Navbar';
+import Nav from 'react-bootstrap/Nav';
 
 
 const NavBar = props => (
@@ -10,21 +9,21 @@ const NavBar = props => (
         <Head>
             <link href="/static/css/prism-okaidia.css" rel="stylesheet" />
             <link href="/static/css/prism-line-numbers.css" rel="stylesheet" />
+            <link
+                rel="stylesheet"
+                href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css"
+                crossorigin="anonymous"
+            />
         </Head>
-        <Toolbar>
-            <Link href="/" passHref prefetch>
-                <Button>Home</Button>
-            </Link>
-            <Link href="/tutorials" passHref prefetch>
-                <Button>Tutorials</Button>
-            </Link>
-            <Link href="/blog" passHref prefetch>
-                <Button>Blog</Button>
-            </Link>
-            <Link href="/about" passHref prefetch>
-                <Button>About</Button>
-            </Link>
-        </Toolbar>
+        <Navbar bg="dark" variant="dark">
+            <Navbar.Brand href="/">Navbar</Navbar.Brand>
+            <Nav className="mr-auto">
+                <Nav.Link href="/">Home</Nav.Link>
+                <Nav.Link href="/tutorials">Tutorials</Nav.Link>
+                <Nav.Link href="/blog">Blog</Nav.Link>
+                <Nav.Link href="/about">About</Nav.Link>
+            </Nav>
+        </Navbar>
     </>
 );
 
