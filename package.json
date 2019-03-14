@@ -4,7 +4,7 @@
         "build": "next build",
         "start": "next start",
         "export": "yarn run build && next export && touch ./out/.nojekyll",
-        "lint": "yarn eslint ."
+        "lint": "eslint --fix"
     },
     "dependencies": {
         "@material-ui/core": "^3.9.2",
