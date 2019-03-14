@@ -3,7 +3,8 @@
         "dev": "next",
         "build": "next build",
         "start": "next start",
-        "export": "yarn run build && next export && touch ./out/.nojekyll"
+        "export": "yarn run build && next export && touch ./out/.nojekyll",
+        "lint": "yarn eslint ."
     },
     "dependencies": {
         "@material-ui/core": "^3.9.2",
@@ -13,5 +14,12 @@
         "react": "^16.8.4",
         "react-bootstrap": "^1.0.0-beta.5",
         "react-dom": "^16.8.4"
+    },
+    "devDependencies": {
+        "eslint": "^5.15.1",
+        "eslint-config-airbnb": "^17.1.0",
+        "eslint-plugin-import": "^2.16.0",
+        "eslint-plugin-jsx-a11y": "^6.2.1",
+        "eslint-plugin-react": "^7.12.4"
     }
 }
