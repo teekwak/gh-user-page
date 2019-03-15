@@ -1,30 +1,30 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
 import Prism from 'prismjs';
-import "prismjs/components/prism-java.min.js";
-import "prismjs/plugins/line-numbers/prism-line-numbers.min.js";
+import 'prismjs/components/prism-java.min';
+import 'prismjs/plugins/line-numbers/prism-line-numbers.min';
 
+export default function JavaCodeBlock(props) {
+  const { lines } = props;
 
-class JavaCodeBlock extends React.Component {
-    constructor(props) {
-        super(props);
-    }
+  useEffect(() => {
+    Prism.highlightAll();
+  });
 
-    componentDidMount = () => {
-        Prism.highlightAll();
-    }
-
-    render = () => (
-        <pre className="line-numbers" style={{borderRadius: "5px"}}>
-            {this.props.lines.map(line => (
-                <React.Fragment key={line}>
-                    <code className="language-java">
-                        {line}
-                    </code>
-                    <br />
-                </React.Fragment>
-            ))}
-        </pre>
-    )
+  return (
+    <pre className="line-numbers" style={{ borderRadius: '5px' }}>
+      {lines.map(line => (
+        <React.Fragment key={line}>
+          <code className="language-java">
+            {line}
+          </code>
+          <br />
+        </React.Fragment>
+      ))}
+    </pre>
+  );
 }
 
-export default JavaCodeBlock;
+JavaCodeBlock.propTypes = {
+  lines: PropTypes.arrayOf(PropTypes.string).isRequired,
+};
