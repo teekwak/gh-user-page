@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import Form from 'react-bootstrap/Form';
 import Card from 'react-bootstrap/Card';
 import Link from 'next/link';
 import NavBar from '../common/navbar';
-
 
 const topics = [
   {
@@ -28,14 +28,9 @@ const topics = [
   },
 ];
 
-
 export default function TutorialPage() {
   const [searchTerm, setSearchTerm] = useState('');
   const [visibleTopics, setVisibleTopics] = useState(topics);
-
-  useEffect(() => {
-    setVisibleTopics(filterVisibleTopics());
-  });
 
   function handleSearchTermChange(e) {
     setSearchTerm(e.target.value);
@@ -61,6 +56,10 @@ export default function TutorialPage() {
     return filteredTopics;
   }
 
+  useEffect(() => {
+    setVisibleTopics(filterVisibleTopics());
+  });
+
   return (
     <div>
       <NavBar />
@@ -77,18 +76,16 @@ export default function TutorialPage() {
   );
 }
 
-
 function TopicCard(props) {
-  const topicName = props.topic.name;
-  const { tutorials } = props.topic;
+  const { topic: { name, tutorials } } = props;
 
   return (
     <Card>
-      <Card.Header>{topicName}</Card.Header>
+      <Card.Header>{name}</Card.Header>
       <Card.Body>
         {tutorials.map(tutorialName => (
           <Card.Text>
-            <Link prefetch href={`/tutorials/${topicName}/${tutorialName}`}>
+            <Link prefetch href={`/tutorials/${name}/${tutorialName}`}>
               <a>{tutorialName}</a>
             </Link>
           </Card.Text>
@@ -98,7 +95,6 @@ function TopicCard(props) {
   );
 }
 
-
 function NoResultsCard() {
   return (
     <Card>
@@ -106,3 +102,10 @@ function NoResultsCard() {
     </Card>
   );
 }
+
+TopicCard.propTypes = {
+  topic: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    tutorials: PropTypes.arrayOf(PropTypes.string).isRequired,
+  }).isRequired,
+};
