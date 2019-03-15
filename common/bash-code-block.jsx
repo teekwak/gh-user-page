@@ -1,30 +1,30 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
 import Prism from 'prismjs';
-import 'prismjs/components/prism-bash.min.js';
-import 'prismjs/plugins/line-numbers/prism-line-numbers.min.js';
+import 'prismjs/components/prism-bash.min';
+import 'prismjs/plugins/line-numbers/prism-line-numbers.min';
 
+export default function BashCodeBlock(props) {
+  const { lines } = props;
 
-class BashCodeBlock extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
-  componentDidMount = () => {
+  useEffect(() => {
     Prism.highlightAll();
-  }
+  });
 
-  render = () => (
-      <pre className="line-numbers" style={{ borderRadius: '5px' }}>
-        {this.props.lines.map(line => (
-          <React.Fragment key={line}>
-            <code className="language-bash">
-              {line}
-            </code>
-            <br />
-          </React.Fragment>
-        ))}
-      </pre>
-    );
+  return (
+    <pre className="line-numbers" style={{ borderRadius: '5px' }}>
+      {lines.map(line => (
+        <React.Fragment key={line}>
+          <code className="language-bash">
+            {line}
+          </code>
+          <br />
+        </React.Fragment>
+      ))}
+    </pre>
+  );
 }
 
-export default BashCodeBlock;
+BashCodeBlock.propTypes = {
+  lines: PropTypes.arrayOf(PropTypes.string).isRequired,
+};
